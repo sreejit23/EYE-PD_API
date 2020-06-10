@@ -1,0 +1,27 @@
+.videoWrap {
+    position: relative;
+    z-index: 0;
+    width: 640px;
+    height: 480px;
+    margin-bottom: 50px;
+    padding-left: 340px;
+}
+.videoWrap .mask {
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.35;
+} 
+.videoWrap .mask img {
+    width: 639px;
+    height: 481px;
+    padding-left: 340px;
+}
+#snap {
+    position: absolute;
+    z-index: 1;
+    bottom: -30px;
+}

@@ -36,6 +36,7 @@ def detect_face():
             raise InvalidException('Unable to parse the image.')
 
         data = face.detect(img)
+
         response = {
             'success': True,
             'status code': 201,
@@ -44,6 +45,7 @@ def detect_face():
         resp = jsonify(response)
         resp.status_code = 200
         return resp
+
 
     except Exception as e:
         response = {
