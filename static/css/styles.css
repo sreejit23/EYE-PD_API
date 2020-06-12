@@ -1,10 +1,16 @@
 .videoWrap {
     position: relative;
     z-index: 0;
-    width: 640px;
+    width: 653px;
     height: 480px;
     margin-bottom: 50px;
-    padding-left: 340px;
+    padding-left: 100px;
+    height: 481px;
+    
+}
+.videoWrap .videoflip{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 .videoWrap .mask {
     position: absolute;
@@ -12,16 +18,35 @@
     top: 0px;
     right: 0px;
     bottom: 0px;
-    left: 0px;
+    left: 13px;
     opacity: 0.35;
 } 
 .videoWrap .mask img {
-    width: 639px;
-    height: 481px;
-    padding-left: 340px;
+      width: 640px;
+    height: 480px;
+    margin-left: 101px;
+    
+
 }
 #snap {
     position: absolute;
     z-index: 1;
     bottom: -30px;
+    color:white;
+    background-color: #008CBA;
+    margin-left: 14px;
+    
+}
+.snapshot{
+    margin-left: 800px;
+    margin-top: -483px;
+}
+#canvas{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    height: 240px;
+}
+#canvas1{
+
+    height: 240px;
 }

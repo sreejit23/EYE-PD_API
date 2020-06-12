@@ -39,11 +39,11 @@ document.getElementById("snap").addEventListener("click", function() {
     context.drawImage(video, 0, 0, 640, 480);
 
 	//Trigger image to flask
-	let dataURL = canvas.toDataURL('image/jpeg');
+	let dataURL = canvas.toDataURL('image/png');
 	let image = dataURL.split(",")[1];
-    //console.log(JSON.stringify({input}));
+
     var data = JSON.stringify({image})
-    console.log(data);
+
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
@@ -52,11 +52,13 @@ document.getElementById("snap").addEventListener("click", function() {
         result = this.responseText;
         //console.log(this.responseText);
         var json = JSON.parse(result);
+        var canvas1 = document.getElementById('canvas1');
+        var ctx = canvas1.getContext('2d');
         var res_image = new Image();
-        res_image.src = 'data:image/jpeg;base64,'+json.data.image;
-        console.log(json.data.image)
-
-        document.body.appendChild(res_image);
+        res_image.src = 'data:image/png;base64,'+json.data.image;
+        res_image.onload = function(){
+            ctx.drawImage(res_image,0,0,640,480);
+        }
     }
     });
 

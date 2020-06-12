@@ -7,19 +7,22 @@
 <!-- Css Styles -->
 
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
-
 <body>
-
-    <div class="videoWrap">
-        <div class="mask">
-            <img src="/static/newmask.png">
-        </div>
-    <video id="video" width="640" height="480" autoplay></video>
-    <button id="snap" >Calculate PD </button>
-    <canvas id="canvas" width="640" height="480" hidden></canvas>
+<div class="videoWrap">
+    <div class="mask">
+        <img src="/static/newmask.png">
     </div>
 
+<div class="videoflip">
+    <video id="video" width="640" height="480" autoplay></video>
 
+</div>
+    <button id="snap">Capture EYE-PD</button>
+    <div class="snapshot">
+        <canvas id="canvas" width="640" height="480" hidden></canvas>
+        <canvas id="canvas1" width ="640" height="480"></canvas>
+    </div>
+</div>
 </body>
 <script src="/static/js/main.js"></script>
 
