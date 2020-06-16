@@ -35,35 +35,40 @@ var context = canvas.getContext('2d');
 var video = document.getElementById('video');
 
 // Trigger photo take
+
 document.getElementById("snap").addEventListener("click", function() {
-    context.drawImage(video, 0, 0, 640, 480);
 
-	//Trigger image to flask
-	let dataURL = canvas.toDataURL('image/png');
-	let image = dataURL.split(",")[1];
+        context.drawImage(video, 0, 0, 640, 480);
+        //Trigger image to flask
+	    let dataURL = canvas.toDataURL('image/png');
+	    let image = dataURL.split(",")[1];
 
-    var data = JSON.stringify({image})
 
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+        var data = JSON.stringify({image});
+        console.log(data);
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
 
-    xhr.addEventListener("readystatechange", function() {
-    if(this.readyState === 4) {
-        result = this.responseText;
-        //console.log(this.responseText);
-        var json = JSON.parse(result);
-        var canvas1 = document.getElementById('canvas1');
-        var ctx = canvas1.getContext('2d');
-        var res_image = new Image();
-        res_image.src = 'data:image/png;base64,'+json.data.image;
-        res_image.onload = function(){
+        xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+            result = this.responseText;
+                //console.log(this.responseText);
+            var json = JSON.parse(result);
+            var canvas1 = document.getElementById('canvas1');
+            var ctx = canvas1.getContext('2d');
+            var res_image = new Image();
+            res_image.src = 'data:image/png;base64,'+json.data.image;
+            res_image.onload = function(){
             ctx.drawImage(res_image,0,0,640,480);
+            }
         }
-    }
-    });
 
-    xhr.open("POST", "http://127.0.0.1:5000/api/face");
-    xhr.setRequestHeader("Content-Type", "application/json");
+        });
 
-    xhr.send(data);
+        xhr.open("POST", "http://127.0.0.1:5000/api/face");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.send(data);
+
 });
+

@@ -41,16 +41,16 @@ class Face():
 
                 dst_left = distance.euclidean(a, c)
                 mm = 0.26458333
-                dist_left_mm = (dst_left * mm) + 20
-                dist_left_mm = round(dist_left_mm)
+                dist_left_mm = (dst_left * mm) + 16
+                dist_left_mm = round(dist_left_mm,2)
 
                 print("left:::", dist_left_mm)
                 dst_right = distance.euclidean(b, c)
 
-                dist_right_mm = (dst_right * mm) + 20
-                dist_right_mm = round(dist_right_mm)
+                dist_right_mm = (dst_right * mm) + 16
+                dist_right_mm = round(dist_right_mm,2)
                 total_pd = dist_right_mm + dist_left_mm
-                total_pd=round(total_pd)
+                total_pd=round(total_pd,2)
                 print("total::", total_pd)
                 print("right::", dist_right_mm)
 
